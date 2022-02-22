@@ -1,0 +1,14 @@
+name: article-rewriter
+channels:
+  - conda-forge
+dependencies:
+  - jupyter
+  - scikit-learn
+  - pytorch
+  - python=3.9
+  - pandas
+  - transformers
+  - sentencepiece
+  - matplotlib
+  - protobuf
+prefix: /Users/scotthickmann/miniforge3/envs/article-rewriter
