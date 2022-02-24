@@ -17,6 +17,9 @@ class Paraphraser:
     encoding = self.tokenizer.encode_plus(text, max_length=self.max_length, padding="max_length", truncation=True, pad_to_max_length=True, return_tensors="pt")
     return encoding
 
+  def decode(self, value: str):
+    return self.tokenizer.decode(value, skip_special_tokens=True, clean_up_tokenization_spaces=True).replace("paraphrase: ", "").replace("paraphrasedoutput: ", "")
+
   def train(self, epoch: int, loader, optimizer):
     self.model.train()
     for step, data in enumerate(loader, 0):
@@ -58,8 +61,9 @@ class Paraphraser:
           num_beam_groups=self.num_beam_groups,
           diversity_penalty=self.diversity_penalty
         )
-        preds = [self.tokenizer.decode(g, skip_special_tokens=True, clean_up_tokenization_spaces=True) for g in generated_ids]
-        target = [self.tokenizer.decode(t, skip_special_tokens=True, clean_up_tokenization_spaces=True) for t in y]
+        preds = [self.decode(generated_id) for generated_id in generated_ids]
+        target = [self.decode(t) for t in y]
+        
         if step % 10 == 0:
           print(f"Completed: {step}")
 
@@ -85,6 +89,5 @@ class Paraphraser:
 
     results = []
     for beam_output in beam_outputs:
-      sent = self.tokenizer.decode(beam_output, skip_special_tokens=True, clean_up_tokenization_spaces=True)
-      results.append(sent.replace("paraphrasedoutput: ", ""))
+      results.append(self.decode(beam_output))
     return results

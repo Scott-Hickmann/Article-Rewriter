@@ -53,6 +53,6 @@ print()
 
 print('Generating paraphrases on our fine-tuned model for the validation dataset and saving it in a dataframe')
 generated, actual = paraphraser.validate(val_loader)
-final_df = pd.DataFrame({'generated': generated, 'actual': actual})
+final_df = pd.DataFrame({'generated': generated, 'expected': actual})
 final_df.to_csv('data/predictions.csv')
 print('Output Files generated for review')
