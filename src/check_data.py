@@ -14,5 +14,8 @@ def checkData(text: str):
     print(f"Received: {mdDecodedText}")
     print()
 
+for text in dataframe['source_with_markdown']:
+  checkData(text)
+
 for text in dataframe['target_with_markdown']:
   checkData(text)

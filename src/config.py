@@ -7,7 +7,6 @@ class Config:
   train_batch_size = 2
   val_batch_size = 2
   train_epochs = 5
-  val_epochs = 1
   max_length = 128
   num_beams = 15
   num_beam_groups = 15

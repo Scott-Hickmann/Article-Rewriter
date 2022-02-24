@@ -32,24 +32,50 @@ class Paraphraser:
       loss = outputs.loss
 
       if step % 10 == 0:
-        print({"Training Loss": loss.item()})
-
-      if step % 500 == 0:
-        print(f'Epoch: {epoch}, Loss: {loss.item()}')
+        print(f"Epoch: {epoch}, Loss: {loss.item()}")
       
       optimizer.zero_grad()
       loss.backward()
       optimizer.step()
 
+  def validate(self, loader):
+    self.model.eval()
+    predictions = []
+    actuals = []
+    with torch.no_grad():
+      for step, data in enumerate(loader, 0):
+        y = data['target_ids'].to(self.device, dtype=torch.long)
+        ids = data['source_ids'].to(self.device, dtype=torch.long)
+        mask = data['source_mask'].to(self.device, dtype=torch.long)
+
+        generated_ids = self.model.generate(
+          input_ids=ids,
+          max_length=self.max_length,
+          attention_mask=mask,
+          early_stopping=True,
+          num_beams=self.num_beams,
+          num_return_sequences=1,
+          num_beam_groups=self.num_beam_groups,
+          diversity_penalty=self.diversity_penalty
+        )
+        preds = [self.tokenizer.decode(g, skip_special_tokens=True, clean_up_tokenization_spaces=True) for g in generated_ids]
+        target = [self.tokenizer.decode(t, skip_special_tokens=True, clean_up_tokenization_spaces=True) for t in y]
+        if step % 10 == 0:
+          print(f"Completed: {step}")
+
+        predictions.extend(preds)
+        actuals.extend(target)
+    return predictions, actuals
+
   def paraphrase(self, encoding: BatchEncoding):
-    input_ids = encoding["input_ids"].to(self.device, dtype=torch.long)
-    attention_mask = encoding["attention_mask"].to(self.device, dtype=torch.long)
+    ids = encoding['input_ids'].to(self.device, dtype=torch.long)
+    mask = encoding['attention_mask'].to(self.device, dtype=torch.long)
 
     self.model.eval()
     beam_outputs = self.model.generate(
-      input_ids=input_ids,
+      input_ids=ids,
       max_length=self.max_length,
-      attention_mask=attention_mask,
+      attention_mask=mask,
       early_stopping=True,
       num_beams=self.num_beams,
       num_return_sequences=1,
