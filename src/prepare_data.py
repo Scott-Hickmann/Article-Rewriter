@@ -23,4 +23,4 @@ def paraphrase(i: int, text: str):
 
 dataframe['target_without_markdown'] = [paraphrase(i, text) for i, text in enumerate(dataframe['source_without_markdown'])]
 
-dataframe.to_csv('data/fine-tuning_data.csv', encoding='utf-8', index=False)
+dataframe.to_csv('data/to_annotate_data.csv', encoding='utf-8', index=False)
