@@ -11,4 +11,8 @@ dependencies:
   - sentencepiece
   - matplotlib
   - protobuf
+  - datasets
+  - bs4
+  - markdown
+  - pymdown-extensions
 prefix: /Users/scotthickmann/miniforge3/envs/article-rewriter
