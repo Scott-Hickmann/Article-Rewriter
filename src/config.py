@@ -7,10 +7,11 @@ class Config:
   train_batch_size = 2
   val_batch_size = 2
   train_epochs = 5
-  max_length = 128
-  num_beams = 15
-  num_beam_groups = 15
-  diversity_penalty = 0.99
+  min_length = 0
+  max_length = 1024
+  summary_max_length = 142
+  num_beams = 4
+  length_penalty = 0.1
 
   def __init__(self):
     self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

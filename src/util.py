@@ -5,7 +5,11 @@ import markdownify
 
 md = markdown.Markdown(extensions=['pymdownx.mark', 'pymdownx.tilde', 'pymdownx.emoji', 'pymdownx.extra'])
 
+stLookup = ["\n\n", "\n"]
+
 def mdEncode(text: str):
+  for i, specialToken in enumerate(stLookup):
+    text = text.replace(specialToken, f"<st{i}/>")
   html = md.convert(text)
   soup = BeautifulSoup(html, "html.parser")
   mdLookup = []
@@ -17,6 +21,9 @@ def mdEncode(text: str):
   def mdEncodeRec(element):
     if element.name is None:
       return element
+    if re.search(r"st\d+", element.name):
+      stIndex = int(re.findall(r"\d+", element.name)[0])
+      return f"(ST{stIndex})"
     mdIndex = len(mdLookup)
     tag = element.name
     mdInfo = {'tag': tag, 'attrs': element.attrs}
@@ -76,10 +83,15 @@ def mdDecode(text: str, mdLookup):
     else:
       result += markdownOrLink
 
+
+  for i, specialToken in enumerate(stLookup):
+    result = result.replace(f"(ST{i})", specialToken)
   return result
 
 def mdRemove(text: str):
   text = re.sub(r"\(MD\d+\)", "", text)
   text = re.sub(r" +", " ", text).strip()
   text = re.sub(r'\s([?.!"](?:\s|$))', r"\1", text)
+  for i, specialToken in enumerate(stLookup):
+    text = text.replace(f"(ST{i})", " ")
   return text
