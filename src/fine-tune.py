@@ -17,7 +17,7 @@ summarizer = Summarizer(
   length_penalty=config.length_penalty
 )
 
-dataframe = pd.read_csv('data/annotated_data.csv', encoding='utf-8')
+dataframe = pd.read_csv('data/annotated_data.csv', encoding='utf-8')[0:5:4]
 train, val = train_test_split(dataframe, test_size=0.2, random_state=config.seed)
 
 def get_dataset(data):
@@ -29,6 +29,8 @@ def get_dataset(data):
 
 training_set, _ = get_dataset(train)
 val_set, md_val_source_with_markdown = get_dataset(val)
+
+print(training_set.target, val_set.target)
 
 train_params = {
   'batch_size': config.train_batch_size,
@@ -50,6 +52,7 @@ optimizer = torch.optim.Adam(summarizer.model.parameters(), lr=config.learning_r
 print('Fine-tuning the model on our dataset')
 for epoch in range(config.train_epochs):
   summarizer.train(epoch, training_loader, optimizer)
+torch.save(summarizer.model.state_dict(), 'models/main.pt')
 print()
 
 def decode_batch(md_generated, md_expected):
@@ -60,8 +63,12 @@ def decode_batch(md_generated, md_expected):
   for a_md_generated, a_md_expected in zip(md_generated, md_expected):
     expected_index = val_set.target.index(a_md_expected)
     md_lookup = md_val_source_with_markdown[expected_index][1]
-    generated.append(mdDecode(a_md_generated, md_lookup))
-    expected.append(mdDecode(a_md_expected, md_lookup))
+    try:
+      generated.append(mdDecode(a_md_generated, md_lookup))
+      expected.append(mdDecode(a_md_expected, md_lookup))
+    except:
+      generated.append(a_md_generated)
+      expected.append(a_md_expected)
   print(generated)
   print(expected)
   return generated, expected

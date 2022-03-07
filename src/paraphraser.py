@@ -17,7 +17,7 @@ class Paraphraser:
     encoding = self.tokenizer.encode_plus(text, max_length=self.max_length, padding="max_length", truncation=True, pad_to_max_length=True, return_tensors="pt")
     return encoding
 
-  def decode(self, value: str):
+  def decode(self, value):
     return self.tokenizer.decode(value, skip_special_tokens=True, clean_up_tokenization_spaces=True).replace("paraphrase: ", "").replace("paraphrasedoutput: ", "")
 
   def train(self, epoch: int, loader, optimizer):

@@ -17,7 +17,7 @@ class Summarizer:
   def encode(self, text: str):
     return self.tokenizer.encode_plus(text, max_length=self.max_length, padding="max_length", truncation=True, return_tensors="pt")
 
-  def decode(self, value: str):
+  def decode(self, value):
     return self.tokenizer.decode(value, skip_special_tokens=True, clean_up_tokenization_spaces=True).replace("paraphrase: ", "").replace("paraphrasedoutput: ", "")
 
   def train(self, epoch: int, loader, optimizer):
