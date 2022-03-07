@@ -8,7 +8,7 @@ md = markdown.Markdown(extensions=['sane_lists', 'pymdownx.mark', 'pymdownx.tild
 
 def mdEncode(text: str, existingMdLookup=None):
   mdLookup = existingMdLookup if existingMdLookup else []
-  html = md.convert(text.replace("\n\n", "DOUBLE_NEW_LINE").replace("\n", "<br/>").replace("DOUBLE_NEW_LINE", "\n\n"))
+  html = md.convert(text.replace("\n\n", "DOUBLE_NEW_LINE").replace("\n", "<br>").replace("DOUBLE_NEW_LINE", "\n\n"))
   root = BeautifulSoup(html, "html.parser")
   for link in root.find_all("a"):
     if link["href"] in mdLookup:
@@ -27,7 +27,7 @@ def mdDecode(text: str, mdLookup):
   return markdownify.markdownify(str(root)).replace("  \n", "\n").strip()
 
 def mdRemove(text: str):
-  root = BeautifulSoup(text.replace("<br/>", "\n").replace("</p>", "</p>\n").strip(), "html.parser")
+  root = BeautifulSoup(text.replace("<br>", "\n").replace("</p>", "</p>\n").strip(), "html.parser")
   return root.text
 
 if __name__ == "__main__":

@@ -5,7 +5,8 @@ class Summarizer:
   def __init__(self, device, min_length: int, max_length: int, summary_max_length: float, num_beams: int, length_penalty: float):
     self.device = device
     self.model = AutoModelForSeq2SeqLM.from_pretrained("sshleifer/distilbart-cnn-6-6").to(self.device)
-    self.tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-cnn-6-6")
+    self.tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-cnn-6-6", additional_special_tokens=['<p>', '</p>', '<br>', '<strong>', '</strong>', '<em>', '</em>', '<ol>', '</ol>', '<ul>', '</ul>', '<li>', '</li>', '<code>', '</code>', '<a href="LINK0">', '<a href="LINK1">', '<a href="LINK2">', '<a href="LINK3">', '<a href="LINK4">', '<a href="LINK5">', '<a href="LINK6">', '<a href="LINK7">', '<a href="LINK8">', '<a href="LINK9">', '</a>'])
+    self.model.resize_token_embeddings(len(self.tokenizer))
     self.min_length = min_length
     self.max_length = max_length
     self.summary_max_length = summary_max_length
@@ -18,7 +19,7 @@ class Summarizer:
     return self.tokenizer.encode_plus(text, max_length=self.max_length, padding="max_length", truncation=True, return_tensors="pt")
 
   def decode(self, value):
-    return self.tokenizer.decode(value, skip_special_tokens=True, clean_up_tokenization_spaces=True).replace("paraphrase: ", "").replace("paraphrasedoutput: ", "")
+    return self.tokenizer.decode(value, clean_up_tokenization_spaces=True).replace("<pad>", "").replace("<s>", "").replace("</s>", "")
 
   def train(self, epoch: int, loader, optimizer):
     self.model.train()
@@ -31,7 +32,6 @@ class Summarizer:
       mask = data['source_mask'].to(self.device, dtype=torch.long)
 
       outputs = self.model(input_ids=ids, attention_mask=mask, decoder_input_ids=y_ids, labels=lm_labels)
-      # print(outputs)
       loss = outputs.loss
 
       if step % 10 == 0:

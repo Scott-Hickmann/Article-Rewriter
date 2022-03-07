@@ -17,7 +17,7 @@ summarizer = Summarizer(
   length_penalty=config.length_penalty
 )
 
-dataframe = pd.read_csv('data/annotated_data.csv', encoding='utf-8')
+dataframe = pd.read_csv('data/annotated_data.csv', encoding='utf-8')[0:5:4]
 train, val = train_test_split(dataframe, test_size=0.2, random_state=config.seed)
 
 def get_dataset(data):
