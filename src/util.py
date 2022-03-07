@@ -1,22 +1,16 @@
 import re
+from unicodedata import name
 from bs4 import BeautifulSoup
 import markdown
 import markdownify
 
-md = markdown.Markdown(extensions=['pymdownx.mark', 'pymdownx.tilde', 'pymdownx.emoji', 'pymdownx.extra'])
+md = markdown.Markdown(extensions=['sane_lists', 'pymdownx.mark', 'pymdownx.tilde', 'pymdownx.emoji', 'pymdownx.extra'])
 
-stLookup = ["\n\n", "\n"]
-
-def mdEncode(text: str):
-  for i, specialToken in enumerate(stLookup):
-    text = text.replace(specialToken, f"<st{i}/>")
+def mdEncode(text: str, existingMdLookup=None):
   html = md.convert(text)
-  soup = BeautifulSoup(html, "html.parser")
-  mdLookup = []
+  root = BeautifulSoup(html, "html.parser")
+  mdLookup = existingMdLookup if existingMdLookup else []
   result = ""
-  root = soup.find('p')
-  if root is None:
-    root = soup
 
   def mdEncodeRec(element):
     if element.name is None:
@@ -24,13 +18,14 @@ def mdEncode(text: str):
     if re.search(r"st\d+", element.name):
       stIndex = int(re.findall(r"\d+", element.name)[0])
       return f"(ST{stIndex})"
-    mdIndex = len(mdLookup)
     tag = element.name
     mdInfo = {'tag': tag, 'attrs': element.attrs}
     if mdInfo in mdLookup:
       mdIndex = mdLookup.index(mdInfo)
     else:
+      mdIndex = len(mdLookup)
       mdLookup.append(mdInfo)
+    mdIndex = mdLookup.index(mdInfo)
     localResult = ""
     for child in element.children:
       localResult += mdEncodeRec(child)
@@ -41,6 +36,8 @@ def mdEncode(text: str):
       result += mdEncodeRec(element)
     else:
       result += element
+
+  result = result.replace("\n", "")
   return result, mdLookup
 
 def mdDecode(text: str, mdLookup):
@@ -83,15 +80,43 @@ def mdDecode(text: str, mdLookup):
     else:
       result += markdownOrLink
 
-
-  for i, specialToken in enumerate(stLookup):
-    result = result.replace(f"(ST{i})", specialToken)
   return result
 
 def mdRemove(text: str):
   text = re.sub(r"\(MD\d+\)", "", text)
   text = re.sub(r" +", " ", text).strip()
   text = re.sub(r'\s([?.!"](?:\s|$))', r"\1", text)
-  for i, specialToken in enumerate(stLookup):
-    text = text.replace(f"(ST{i})", " ")
   return text
+
+if __name__ == "__main__":
+  original = "**Hello** _world_\n\nHow are\nyou\n\ntoday"
+  originalMdEncoded, originalMdLookup = mdEncode(original)
+  print(original)
+  print(originalMdEncoded)
+  originalMdDecoded = mdDecode(originalMdEncoded, originalMdLookup)
+  print(originalMdDecoded)
+  variant1 = "_Hello_ **world**\n\nHow are\nyou\n\ntoday"
+  variant1MdEncoded, variant1MdLookup = mdEncode(variant1)
+  print(variant1)
+  print(variant1MdEncoded)
+  if variant1MdEncoded != originalMdEncoded:
+    raise Exception("Encoded variant does not match original")
+  if variant1MdLookup == originalMdLookup:
+    print(variant1MdLookup)
+    print(originalMdLookup)
+    raise Exception("Encoded variant lookup should not match original")
+  variant2MdEncoded, variant2MdLookup = mdEncode(variant1, originalMdLookup)
+  print(variant1)
+  print(variant2MdEncoded)
+  if variant2MdEncoded == originalMdEncoded:
+    raise Exception("Encoded variant should not match original")
+  if variant2MdLookup != originalMdLookup:
+    raise Exception("Encoded variant lookup does not match original")
+  print(mdDecode(*mdEncode("""Here is a pair of old iOS 6 settings — “Do Not Disturb” and “Notifications”. Look how many light effects are going on with them.
+
+*   The top lip of the inset control panel casts a small shadow
+*   The “ON” slider track is also immediately set in a bit
+*   The “ON” slider track is concave and the bottom reflects more light
+*   The icons are set _out_ a bit. See the bright border around the top of them? This represents a surface perpendicular to the light source, hence receiving a lot of light, hence bouncing a lot of light into your eyes.
+*   The divider notch is shadowed where angled away from the sun and vice versa""")))
+  print(mdDecode(mdEncode("If you feel the itch to pull out your phone in a break in the conversation, ‘silence’ it. If you want to truly cleanse, this step is unbreakable. You can influence your friends’ behaviors by playfully shaming them when they pull out their phones unnecessarily.")[0], [{'tag': 'ol', 'attrs': {}}, {'tag': 'li', 'attrs': {}}, {'tag': 'strong', 'attrs': {}}, {'tag': 'em', 'attrs': {}}, {'tag': 'a', 'attrs': {'href': 'https://medium.com/'}}, {'tag': 'a', 'attrs': {'href': 'http://i2.kym-cdn.com/photos/images/original/000/133/088/2320c993_92f3_b20b.jpg'}}]))
