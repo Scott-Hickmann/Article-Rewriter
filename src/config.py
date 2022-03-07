@@ -6,7 +6,7 @@ class Config:
   learning_rate = 1e-4
   train_batch_size = 2
   val_batch_size = 2
-  train_epochs = 6
+  train_epochs = 5
   min_length = 0
   max_length = 1024
   summary_max_length = 142
