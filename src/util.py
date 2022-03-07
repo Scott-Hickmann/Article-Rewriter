@@ -80,7 +80,7 @@ def mdDecode(text: str, mdLookup):
     else:
       result += markdownOrLink
 
-  return result
+  return result.strip()
 
 def mdRemove(text: str):
   text = re.sub(r"\(MD\d+\)", "", text)
