@@ -15,4 +15,6 @@ dependencies:
   - bs4
   - markdown
   - pymdown-extensions
+  - absl-py
+  - nltk
 prefix: /Users/scotthickmann/miniforge3/envs/article-rewriter
