@@ -86,7 +86,7 @@ def mdRemove(text: str):
   text = re.sub(r"\(MD\d+\)", "", text)
   text = re.sub(r" +", " ", text).strip()
   text = re.sub(r'\s([?.!"](?:\s|$))', r"\1", text)
-  return 
+  return text
 
 if __name__ == "__main__":
   def pprint(text: str):

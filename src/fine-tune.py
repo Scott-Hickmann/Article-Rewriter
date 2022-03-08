@@ -6,6 +6,7 @@ from config import Config
 from util import mdDecode, mdEncode
 from summarizer import Summarizer
 from dataset import CustomDataset
+from evaluate import evaluate
 
 config = Config()
 summarizer = Summarizer(
@@ -49,15 +50,7 @@ val_loader = DataLoader(val_set, **val_params)
 
 optimizer = torch.optim.Adam(summarizer.model.parameters(), lr=config.learning_rate)
 
-print('Fine-tuning the model on our dataset')
-for epoch in range(config.train_epochs):
-  summarizer.train(epoch, training_loader, optimizer)
-torch.save(summarizer.model.state_dict(), 'models/main.pt')
-print()
-
 def decode_batch(md_generated, md_expected):
-  print(md_generated)
-  print(md_expected)
   generated = []
   expected = []
   for a_md_generated, a_md_expected in zip(md_generated, md_expected):
@@ -69,13 +62,21 @@ def decode_batch(md_generated, md_expected):
     except:
       generated.append(a_md_generated)
       expected.append(a_md_expected)
-  print(generated)
-  print(expected)
   return generated, expected
 
-print('Generating paraphrases on our fine-tuned model for the validation dataset and saving it in a dataframe')
-md_generated, md_expected = summarizer.validate(val_loader)
-generated, expected = decode_batch(md_generated, md_expected)
-final_df = pd.DataFrame({'generated': generated, 'expected': expected})
-final_df.to_csv('data/predictions.csv', encoding='utf-8', index=False)
-print('Output Files generated for review')
+print('Fine-tuning the model on our dataset')
+best_score = 0
+for epoch in range(config.train_epochs):
+  summarizer.train(epoch, training_loader, optimizer)
+  print()
+  print('Evaluating')
+  md_generated, md_expected = summarizer.validate(val_loader)
+  generated, expected = decode_batch(md_generated, md_expected)
+  final_df = pd.DataFrame({'generated': generated, 'expected': expected})
+  final_df.to_csv('data/predictions.csv', encoding='utf-8', index=False)
+  score = evaluate(final_df)
+  if score > best_score:
+    print("New best score, saving to dataset")
+    best_score = score
+    torch.save(summarizer.model.state_dict(), 'models/main.pt')
+  print()
