@@ -7,28 +7,86 @@ import markdownify
 md = markdown.Markdown(extensions=['sane_lists', 'pymdownx.mark', 'pymdownx.tilde', 'pymdownx.emoji', 'pymdownx.extra'])
 
 def mdEncode(text: str, existingMdLookup=None):
-  mdLookup = existingMdLookup if existingMdLookup else []
-  html = md.convert(text.replace("\n\n", "DOUBLE_NEW_LINE").replace("\n", "<br>").replace("DOUBLE_NEW_LINE", "\n\n"))
+  html = md.convert(text)
   root = BeautifulSoup(html, "html.parser")
-  for link in root.find_all("a"):
-    if link["href"] in mdLookup:
-      mdIndex = mdLookup.index(link["href"])
+  mdLookup = existingMdLookup if existingMdLookup else []
+  result = ""
+
+  def mdEncodeRec(element):
+    if element.name is None:
+      return element
+    if re.search(r"st\d+", element.name):
+      stIndex = int(re.findall(r"\d+", element.name)[0])
+      return f"(ST{stIndex})"
+    tag = element.name
+    mdInfo = {'tag': tag, 'attrs': element.attrs}
+    if mdInfo in mdLookup:
+      mdIndex = mdLookup.index(mdInfo)
     else:
       mdIndex = len(mdLookup)
-      mdLookup.append(link["href"])
-    link["href"] = f"LINK{mdIndex}"
-  return str(root).replace("\n", ""), mdLookup
+      mdLookup.append(mdInfo)
+    mdIndex = mdLookup.index(mdInfo)
+    localResult = ""
+    for child in element.children:
+      localResult += mdEncodeRec(child)
+    return f"(MD{mdIndex}){localResult}(MD{mdIndex})"
+
+  for element in root.children:
+    if element.name:
+      result += mdEncodeRec(element)
+    else:
+      result += element
+
+  result = result.replace("\n", "")
+  return result, mdLookup
 
 def mdDecode(text: str, mdLookup):
-  root = BeautifulSoup(text, "html.parser")
-  for link in root.find_all("a"):
-    mdIndex = int(re.findall(r"\d+", link["href"])[0])
-    link["href"] = mdLookup[mdIndex]
-  return markdownify.markdownify(str(root)).replace("  \n", "\n").strip()
+  textMdTags = re.split(r"(\(MD\d+\))", text)
+  html = ""
+  openedTags = []
+  links = []
+  linkReplacer = "http://LINK.link"
+  for textOrMdTag in textMdTags:
+    if re.search(r"\(MD\d+\)", textOrMdTag):
+      mdIndex = int(re.findall(r"\d+", textOrMdTag)[0])
+      mdInfo = mdLookup[mdIndex]
+      tag = mdInfo['tag']
+      if (len(openedTags) > 0 and openedTags[-1] == tag):
+        openedTags.pop()
+        html += "==" if tag == "mark" else f"</{tag}>"
+      else:
+        openedTags.append(tag)
+        if tag == "mark": 
+          html += "=="
+        else:
+          html += f"<{tag}"
+          for key, value in mdInfo['attrs'].items():
+            if key == "href":
+              links.append(value)
+              value = linkReplacer
+            html += f" {key}=\"{value}\""
+          html += ">"
+    else:
+      html += textOrMdTag
+  
+  markdown = markdownify.markdownify(html)
+  markdownOrLinks = re.split(r"(http://LINK.link)", markdown)
+  result = ""
+  linkIndex = 0
+  for markdownOrLink in markdownOrLinks:
+    if markdownOrLink == linkReplacer:
+      result += links[linkIndex]
+      linkIndex += 1
+    else:
+      result += markdownOrLink
+
+  return result.strip()
 
 def mdRemove(text: str):
-  root = BeautifulSoup(text.replace("<br>", "\n").replace("</p>", "</p>\n").strip(), "html.parser")
-  return root.text
+  text = re.sub(r"\(MD\d+\)", "", text)
+  text = re.sub(r" +", " ", text).strip()
+  text = re.sub(r'\s([?.!"](?:\s|$))', r"\1", text)
+  return 
 
 if __name__ == "__main__":
   def pprint(text: str):

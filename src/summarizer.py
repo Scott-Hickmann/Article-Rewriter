@@ -5,7 +5,7 @@ class Summarizer:
   def __init__(self, device, min_length: int, max_length: int, summary_max_length: float, num_beams: int, length_penalty: float):
     self.device = device
     self.model = AutoModelForSeq2SeqLM.from_pretrained("sshleifer/distilbart-cnn-6-6").to(self.device)
-    self.tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-cnn-6-6", additional_special_tokens=['<p>', '</p>', '<br>', '<strong>', '</strong>', '<em>', '</em>', '<ol>', '</ol>', '<ul>', '</ul>', '<li>', '</li>', '<code>', '</code>', '<a href="LINK0">', '<a href="LINK1">', '<a href="LINK2">', '<a href="LINK3">', '<a href="LINK4">', '<a href="LINK5">', '<a href="LINK6">', '<a href="LINK7">', '<a href="LINK8">', '<a href="LINK9">', '</a>'])
+    self.tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-cnn-6-6", additional_special_tokens=[f'(MD{n})' for n in range(100)])
     self.model.resize_token_embeddings(len(self.tokenizer))
     self.min_length = min_length
     self.max_length = max_length
