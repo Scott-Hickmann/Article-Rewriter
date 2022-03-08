@@ -1,19 +1,19 @@
 import torch
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, BatchEncoding
+from config_summarizer import Config
 
 class Summarizer:
-  def __init__(self, device, min_length: int, max_length: int, summary_max_length: float, num_beams: int, length_penalty: float):
-    self.device = device
+  def __init__(self, config: Config):
+    self.device = config.device
     self.model = AutoModelForSeq2SeqLM.from_pretrained("sshleifer/distilbart-cnn-6-6").to(self.device)
     self.tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-cnn-6-6", additional_special_tokens=[f'(MD{n})' for n in range(100)])
     self.model.resize_token_embeddings(len(self.tokenizer))
-    self.min_length = min_length
-    self.max_length = max_length
-    self.summary_max_length = summary_max_length
-    self.num_beams = num_beams
-    self.length_penalty = length_penalty
-    self.model.config.max_length = max_length
-    print(self.model.config)
+    self.min_length = config.min_length
+    self.max_length = config.max_length
+    self.summary_max_length = config.summary_max_length
+    self.num_beams = config.num_beams
+    self.length_penalty = config.length_penalty
+    self.model.config.max_length = config.max_length
 
   def encode(self, text: str):
     return self.tokenizer.encode_plus(text, max_length=self.max_length, padding="max_length", truncation=True, return_tensors="pt")

@@ -1,32 +1,18 @@
 import pandas as pd
 import torch
-from config import Config
+from config_summarizer import Config
 from util import mdDecode, mdEncode, mdRemove
-from summarizer import Summarizer
 import json
+from summarizer import Summarizer
 from evaluate import evaluate
 
 article_input = input('Article number: ')
 
 config = Config()
-summarizer = Summarizer(
-  device=config.device,
-  min_length=config.min_length,
-  max_length=config.max_length,
-  summary_max_length=config.summary_max_length,
-  num_beams=config.num_beams,
-  length_penalty=config.length_penalty
-)
-summarizer.model.load_state_dict(torch.load("models/main.pt"))
+summarizer = Summarizer(config)
+summarizer.model.load_state_dict(torch.load(f"models/{config.rewriter_name}/main.pt"))
 summarizer.model.eval()
-naive_summarizer = Summarizer(
-  device=config.device,
-  min_length=config.min_length,
-  max_length=config.max_length,
-  summary_max_length=config.summary_max_length,
-  num_beams=config.num_beams,
-  length_penalty=config.length_penalty
-)
+naive_summarizer = Summarizer(config)
 
 def summarize_article(article_number):
   article = json.load(open(f"data/article_{article_number}.json", "r"))
@@ -62,16 +48,17 @@ def summarize_article(article_number):
   print(original)
   print()
   print()
-  result = "\n\n".join(targets)
+  summarized = "\n\n".join(targets)
   print(result)
   print()
   print()
-  compression_str = f"Compression: {len(result) / len(original)} ({len(result)}/{len(original)})"
+  compression = len(summarized) / len(original) * 100
+  compression_str = f"Compression: {compression}% ({len(summarized)}/{len(original)})"
   print(compression_str)
   final_df = pd.DataFrame({'generated': generated, 'expected': expected})
   rouge2_score, rougeL_score = evaluate(final_df)
 
-  summary_file = open(f"data/article_{article_number}_summary.md", "w")
+  summary_file = open(f"results/{config.rewriter_name}/article_{article_number}.md", "w")
   summary_file.write(f"""# {article["title"]}
 
 ```
@@ -83,9 +70,15 @@ Rouge L: {rougeL_score}%
 {result}
 """)
   summary_file.close()
+  return compression, rouge2_score, rougeL_score
 
+results = []
 if article_input == "":
   for n in range(10):
-    summarize_article(str(n + 1))
+    results.append(summarize_article(str(n + 1)))
 else:
-  summarize_article(article_input)
+  results.append(summarize_article(article_input))
+
+print("Compression,Rouge 2,Rouge L")
+for result in results:
+  print(f"{result[0]}%,{result[1]}%,{result[2]}%")

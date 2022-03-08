@@ -1,16 +1,17 @@
 import torch
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, BatchEncoding
+from config_paraphraser import Config
 
 class Paraphraser:
-  def __init__(self, device, max_length: int, num_beams: int, num_beam_groups: int, diversity_penalty: float):
-    self.device = device
+  def __init__(self, config: Config):
+    self.device = config.device
     self.model = AutoModelForSeq2SeqLM.from_pretrained("ramsrigouthamg/t5-large-paraphraser-diverse-high-quality").to(self.device)
     self.tokenizer = AutoTokenizer.from_pretrained("ramsrigouthamg/t5-large-paraphraser-diverse-high-quality")
-    self.max_length = max_length
-    self.num_beams = num_beams
-    self.num_beam_groups = num_beam_groups
-    self.diversity_penalty = diversity_penalty
-    self.model.config.max_length = max_length
+    self.max_length = config.max_length
+    self.num_beams = config.num_beams
+    self.num_beam_groups = config.num_beam_groups
+    self.diversity_penalty = config.diversity_penalty
+    self.model.config.max_length = config.max_length
 
   def encode(self, context: str):
     text = "paraphrase: " + context + " </s>"
@@ -31,7 +32,6 @@ class Paraphraser:
       mask = data['source_mask'].to(self.device, dtype=torch.long)
 
       outputs = self.model(input_ids=ids, attention_mask=mask, decoder_input_ids=y_ids, labels=lm_labels)
-      # print(outputs)
       loss = outputs.loss
 
       if step % 10 == 0:

@@ -12,6 +12,7 @@ class Config:
   summary_max_length = 142
   num_beams = 4
   length_penalty = 0.1
+  rewriter_name = "summarizer"
 
   def __init__(self):
     self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

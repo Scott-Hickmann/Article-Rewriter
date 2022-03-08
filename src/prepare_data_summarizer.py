@@ -1,20 +1,13 @@
 import json
 import pandas as pd
-from config import Config
+from config_summarizer import Config
 from util import mdEncode, mdRemove
 from summarizer import Summarizer
 
 config = Config()
-summarizer = Summarizer(
-  device=config.device,
-  min_length=config.min_length,
-  max_length=config.max_length,
-  summary_max_length=config.summary_max_length,
-  num_beams=config.num_beams,
-  length_penalty=config.length_penalty
-)
+summarizer = Summarizer(config)
 
-dataframe = pd.read_csv('data/raw_data.csv', encoding='utf-8')
+dataframe = pd.read_csv(f'data/{config.rewriter_name}/raw_data.csv', encoding='utf-8')
 
 def summarize(i: int, text: str):
   summarized = summarizer.summarize(summarizer.encode(text))[0]
@@ -40,4 +33,4 @@ dataframe['source_with_markdown'] = sources_with_markdown
 dataframe['source_without_markdown'] = [mdRemove(mdEncode(text)[0]) for text in sources_with_markdown]
 dataframe['target_without_markdown'] = [summarize(i, text) for i, text in enumerate(dataframe['source_without_markdown'])]
 
-dataframe.to_csv('data/to_annotate_data.csv', encoding='utf-8', index=False)
+dataframe.to_csv(f'data/{config.rewriter_name}/to_annotate_data.csv', encoding='utf-8', index=False)

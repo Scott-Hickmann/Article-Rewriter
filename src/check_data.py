@@ -1,8 +1,6 @@
 import pandas as pd
 from util import md, mdDecode, mdEncode
 
-dataframe = pd.read_csv('data/annotated_data.csv', encoding='utf-8')
-
 def checkData(text: str):
   mdText, mdLookup = mdEncode(text)
   mdDecodedText = mdDecode(mdText, mdLookup)
@@ -13,6 +11,16 @@ def checkData(text: str):
     print(f"Expected: {text}")
     print(f"Received: {mdDecodedText}")
     print()
+
+dataframe = pd.read_csv('data/paraphraser/annotated_data.csv', encoding='utf-8')
+
+for text in dataframe['source_with_markdown']:
+  checkData(text)
+
+for text in dataframe['target_with_markdown']:
+  checkData(text)
+
+dataframe = pd.read_csv('data/summarizer/annotated_data.csv', encoding='utf-8')
 
 for text in dataframe['source_with_markdown']:
   checkData(text)
