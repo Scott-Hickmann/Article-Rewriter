@@ -49,7 +49,7 @@ def rewrite_article(article_number):
         targets.append(target)
     else:
       targets.append(source["text"])
-  original = source["content"]
+  original = article["content"]
   print(original)
   print()
   print()
