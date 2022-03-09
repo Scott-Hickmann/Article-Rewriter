@@ -49,7 +49,7 @@ def summarize_article(article_number):
   print()
   print()
   summarized = "\n\n".join(targets)
-  print(result)
+  print(summarized)
   print()
   print()
   compression = len(summarized) / len(original) * 100
@@ -67,7 +67,7 @@ Rouge 2: {rouge2_score}%
 Rouge L: {rougeL_score}%
 ```
 
-{result}
+{summarized}
 """)
   summary_file.close()
   return compression, rouge2_score, rougeL_score

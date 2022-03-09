@@ -8,8 +8,8 @@ class Config:
   val_batch_size = 2
   train_epochs = 5
   max_length = 128
-  num_beams = 15
-  num_beam_groups = 15
+  num_beams = 5
+  num_beam_groups = 5
   diversity_penalty = 0.99
   rewriter_name = "paraphraser"
 

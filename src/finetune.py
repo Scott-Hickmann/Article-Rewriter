@@ -43,7 +43,7 @@ def finetune(config, rewriter):
     generated = []
     expected = []
     for a_md_generated, a_md_expected in zip(md_generated, md_expected):
-      expected_index = val_set.target.index(a_md_expected)
+      expected_index = val_set.target.index(a_md_expected.strip())
       md_lookup = md_val_source_with_markdown[expected_index][1]
       try:
         generated.append(mdDecode(a_md_generated, md_lookup))

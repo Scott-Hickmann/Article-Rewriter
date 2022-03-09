@@ -1,99 +1,99 @@
 # What’s About To Happen In Ukraine
 
 ```
-Compression: 0.3567263860913813 (6730/18866)
-Rouge 2: 65.37612802102505%
-Rouge L: 68.51486538372397%
+Compression: 33.26619315170147% (6276/18866)
+Rouge 2: 70.64723132341257%
+Rouge L: 72.64040312938462%
 ```
 
-This morning I woke up to the hopeful news that some Russian forces are pulling back from the border with Ukraine. Unfortunately, this isn’t quite the positive sign it might appear.
+Russian forces are pulling back from the border with Ukraine.
 
-Maskirovka is about keeping an opponent guessing about your true intentions, and nothing more.
+Maskirovka is about keeping an opponent guessing about your true intentions.
 
 Putin wants Ukraine to become a Russian client state like Belarus is today. This means eliminating the possibility of Ukraine ever joining NATO.
 
-Ukraine is too corrupt and undemocratic to qualify for NATO membership now. NATO functions as a way of getting American taxpayers to fund defense spending European countries ought to be providing themselves.
+Ukraine is too corrupt and undemocratic to qualify for membership now, and NATO itself probably won't be around in ten years. NATO functions as a way of getting American taxpayers to fund defense spending European countries ought to be providing themselves.
 
-NATO allowed Hungary and Czechoslovakia to fall to Moscow when Joe Biden was young. NATO has always been a bluff, a shaky alliance including Greece and Turkey.
+NATO allowed Hungary and Czechoslovakia to fall to Moscow when Joe Biden was young. Only battles it has ever fought have been against Serbian and Taliban militants.
 
-Russian leaders like Putin don't look at the present and assume it will continue forever. They habitually plan ten years down the road, using their recent experience of being basically at the mercy of America and NATO in the 1990s and 2000s.
+Russian leaders habitually plan ten years down the road, using their recent experience of being basically at the mercy of America and NATO in the 1990s and 2000s.
 
-Americans are caught up in the fake war to protect democracy, but this isn't true. The Russian people could revolt against their oppressive government, but few ever will so long.
+The Russian people could revolt against their oppressive government, but few ever will so long as the economy is okay and Russia feels important on the global stage.
 
-Putin has an incentive to look into the future and estimate where Russia could be in a decade. Ukraine continues to insist Crime and Donbas belong to it.
+Putin has an incentive to look into the future and estimate where Russia  *could be in a decade. Because Ukraine continues to insist [Crimea and Donbas belong to it, a future nightmare scenario haunts Moscow’s dreams.](https://www.france24.com/en/europe/20210823-ukraine-opens-international-summit-calling-for-return-of-crimea-from-russia)*
 
-Putin is determined to end the unstable situation along the Russia-Ukraine border one way or another.
+Putin is clearly determined to end the unstable situation along the Russia-Ukraine border one way or another.
 
-Major Russian military forces in Siberia have been moved to the western military districts.
+Major Russian military forces [historically deployed in Siberia have been moved to the western military districts.](https://www.washingtonpost.com/politics/2022/01/15/heres-what-we-know-about-russias-military-buildup-near-ukraine/)
 
-Putin does not want to undertake a large-scale invasion of Ukraine. He is sending every credible signal possible that he is willing to go down this road.
+Putin does not want to undertake a large-scale invasion of Ukraine.
 
-American leaders are obsessed with the concept of deterrence, making the critical error in failing to think from Putin’s perspective.
+American leaders are obsessed with the concept of [deterrence](https://en.wikipedia.org/wiki/Deterrence_theory), making the critical error in failing to think from Putin's perspective.
 
-CBA is used in policy mostly to justify an action some politician wants to take.
+CBA is used in policy mostly to justify an action some politician wants to take and needs cover for.
 
-Sanctions are a means of looking tough to a domestic audience and little more. Sanctions have already worked out a way around them.
+Sanctions are a means of looking tough to a domestic audience and little more.
 
-Putin’s threat of being cut off from the global banking system is easily mitigated with Chinese support. China has no reason to restrain Putin, like the US and UK.
+In Putin’s case, the threat of being cut off from the global banking system or natural gas exports to Europe is easily mitigated with Chinese support.
 
 NATO scramble and take ineffectual action to cover itself while leaving Ukraine basically alone.
 
-Putin has now successfully bluffed the US and UK into  unprecedented investment in Ukraine. The threat of conflict means airlines are stopping service.
+Putin has successfully bluffed the US and UK into  [pulling advisers out of Ukraine.](https://www.cnbc.com/2022/02/12/pentagon-orders-departure-of-us-troops-in-ukraine.html)
 
-The idea that Russia will attack Ukraine out of nowhere is frankly silly, because he gains far more by exhausting Ukraine over time.
+Putin doesn't have to decide on a date to invade Ukraine — he can simply park his forces where they are as a permanent, existential threat.
 
-For the past month, Russian intelligence has been aggressively working on a maskirovka campaign. Politicians and pundits are latching onto every intelligence intercepts.
+For the past month, Russian intelligence has been aggressively working on a maskirovka campaign specifically designed to gaslight American and allied intelligence.
 
 Putin has been able to trap him in a dynamic where America looks like its crying chicken little every five minutes.
 
-Putin's position weakens America’s position if any diplomatic deal prevents the outbreak of war it will stem from German efforts underway this week.
+Putin pulling back some troops from the border ahead of the new German chancellor Scholz is a classic technique.
 
-Russia has asked Putin to recognize Donetsk and Lukhansk, which more or less means Russia can annex them.
+Russia insists Ukraine is plotting an offensive in Donbas — and one day Crimea — that will harm Russian people.
 
-Russia's military buildup has been slow and deliberate over the past year. This is a long-term shift in Russia’s positions intended to communicate that Russia trusts China and potential conflicts in Europe and Asia will always be linked.
+Russia’s military buildup has been slow and deliberate over the past year, punctuated with sudden movements under the guise of exercises.
 
 The bluff this could happen has been useful making London and Washington panic but doesn't match up with Putin's domestic rhetoric. What he needs to justify an attack is an outburst of violence like what appears to be now escalating in Donbas.
 
 The problem with them doing this is that by definition false-flag operations are difficult to attribute with any certainty.
 
-Both American and Russian sources hinted at the other side launching some kind of chemical weapons attack, which is classic in false-flag operations.
+Both American and Russian sources hinted at the other side launching some kind of chemical weapons attack.
 
-It took months of direct inspections to prove Syria used chemical weapons in Syria.
+It took months of direct inspections to prove that Syria used chemical weapons in Syria.
 
 People on both sides will believe what their leaders and media insist is true.
 
-A major blowup that triggers a Russian ultimatum to Zelensky will force Ukraine to choose between unfair negotiations and a huge war. Biden has already ruled out in an idiotic, counterproductive self-own.
+There are now two basic possibilities for how the Ukraine crisis ends. One is a major blowup that triggers a Russian ultimatum to Zelensky. This will force Ukraine to choose between unfair negotiations that force cession of Donbas and Crimea.
 
-Ukraine is unlikely to be able to join NATO for 20 years. Autonomy for Donbas and an understanding that Crimea will remain Russian are also sadly going to be necessary to avert a war.
+Crimea will remain Russian plus an effective demilitarized zone buffering the two sides along their mutual borders.
 
-Putin can keep ratcheting up pressure on Kyiv until he gets what he wants or Zelensky falls.
+Ukraine stands alone Putin can keep ratcheting up pressure on Kyiv until he gets what he wants or Zelensky falls.
 
-The Ukraine-Russia relationship has been a long-running problem for the U.S.
+The United States has taken NATO over the long run by proving its limitations.
 
-Putin has already achieved 3 and 4, says Biden. Biden is backing down as fast as he can while trying to refocus America’s attention on China.
+Biden is backing down as fast as he can while trying to refocus America’s attention on China.
 
 Putin is committed to victory even at serious cost to Russia’s international reputation and long-term relationship with Ukraine.
 
-The real deterrent to a major invasion is the fact that a big war will permanently sever whatever bonds remain. Even if an insurgency doesn't kill hundreds of Russian soldiers, eventually Ukraine will be free again.
+Even if an insurgency doesn't kill hundreds of Russian soldiers, eventually Ukraine will be free again.
 
-Putin is more cautious than people give him credit for Russia’s newly-professional military is the least likely outcome.
+Russia's newly-professional military is as casualty averse and reliant on firepower as America’s.
 
-Putin does not want to conquer Ukraine by force, writes Peter Bergen.
+A limited operation opens the door to further conquest through non-military means. Putin does not want to conquer Ukraine by force.
 
-The Transatlantic Alliance will always be hindered by America’s ongoing collapse. Russia can now actively intensify if it chooses — and might, as part of Putin”s ultimate revenge for the fall of the Soviet Union.
+The Transatlantic Alliance will always be hindered by  [America’s ongoing collapse](https://medium.com/gen/fourth-america-is-almost-over-americans-want-a-divorce-9367a5d50df7), a process Russia can now actively intensify if it chooses.
 
 America is running away just like it did in Afghanistan, Biden entirely concerned about his domestic audience and pitiful chances at re-election in 2024.
 
-Putin's maskirovka is designed to obscure his core aims, but Putin is savvy enough to realize he doesn't get it if there's an all-out war.
+Putin’s maskirovka is designed to obscure his core aims.
 
-Russia can't stop a direct invasion of Ukraine at any point, Russia can’t stop. Russia can simply sit back and bombard Ukraine for days or weeks.
+A direct invasion of Ukraine at any point will follow an initial campaign intended to paralyze and crush Ukraine’s armed forces in the east.
 
-Russia makes several moves that keep a door open to negotiations and imply a willingness to back down. An accident or intentional attack kills Russian soldiers or Russian-speakers in Ukraine. If Ukraine negotiates, the attacks stop.
+Russia makes several moves that keep a door open to negotiations and imply a willingness to back down.
 
 The major attack could involve chemical weapons in order to directly call into question American assertions of Russian responsibility.
 
 Russia’s forces surrounding Ukraine give Putin options he can elect to deploy one at a time or all at once.
 
-War is war, Russia has learned Clausewitz’ lesson better than anyone, says John Sutter.
+All conflict takes place on a continuum and each move made is part of a deeper, multi-layered game.
 
-U.S. leaders are too ignorant of geography, history, and systems to be trusted in this crisis. Only Europe will ever defend Ukraine, only Europe can deal with Russia.
+In the long run, only Europe will ever defend Ukraine. Only Europe can deal with Russia.

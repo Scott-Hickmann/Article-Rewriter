@@ -13,8 +13,8 @@ article_input = input('Article number: ')
 
 config = Config()
 paraphraser = Paraphraser(config)
-# paraphraser.model.load_state_dict(torch.load(f"models/{config.rewriter_name}/main.pt"))
-# paraphraser.model.eval()
+paraphraser.model.load_state_dict(torch.load(f"models/{config.rewriter_name}/main.pt"))
+paraphraser.model.eval()
 naive_paraphraser = Paraphraser(config)
 
 def paraphrase_article(article_number):
@@ -46,14 +46,14 @@ def paraphrase_article(article_number):
           paraphrased += target
           generated.append(mdRemove(result))
           expected.append(expected_res)
-  original = "".join([source["text"] for source in sources])
   print(original)
   print()
   print()
   print(paraphrased)
   print()
   print()
-  compression_str = f"Compression: {len(paraphrased) / len(original)} ({len(paraphrased)}/{len(original)})"
+  compression = len(paraphrased) / len(original) * 100
+  compression_str = f"Compression: {compression}% ({len(paraphrased)}/{len(original)})"
   print(compression_str)
   final_df = pd.DataFrame({'generated': generated, 'expected': expected})
   rouge2_score, rougeL_score = evaluate(final_df)
@@ -67,12 +67,18 @@ Rouge 2: {rouge2_score}%
 Rouge L: {rougeL_score}%
 ```
 
-{result}
+{paraphrased}
 """)
   paraphrase_file.close()
+  return compression, rouge2_score, rougeL_score
 
+results = []
 if article_input == "":
   for n in range(10):
-    paraphrase_article(str(n + 1))
+    results.append(paraphrase_article(str(n + 1)))
 else:
-  paraphrase_article(article_input)
+  results.append(paraphrase_article(article_input))
+
+print("Compression,Rouge 2,Rouge L")
+for result in results:
+  print(f"{result[0]}%,{result[1]}%,{result[2]}%")
