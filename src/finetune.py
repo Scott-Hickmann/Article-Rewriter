@@ -42,16 +42,18 @@ def finetune(config, rewriter):
   def decode_batch(md_generated, md_expected):
     generated = []
     expected = []
+    md_original = []
     for a_md_generated, a_md_expected in zip(md_generated, md_expected):
       expected_index = val_set.target.index(a_md_expected.strip())
-      md_lookup = md_val_source_with_markdown[expected_index][1]
+      md_encoded, md_lookup = md_val_source_with_markdown[expected_index]
+      md_original.append(md_encoded)
       try:
         generated.append(mdDecode(a_md_generated, md_lookup))
         expected.append(mdDecode(a_md_expected, md_lookup))
       except:
         generated.append(a_md_generated)
         expected.append(a_md_expected)
-    return generated, expected
+    return generated, expected, md_original
 
   print('Fine-tuning the model on our dataset')
   best_score = 0
@@ -60,10 +62,10 @@ def finetune(config, rewriter):
     print()
     print('Evaluating')
     md_generated, md_expected = rewriter.validate(val_loader)
-    generated, expected = decode_batch(md_generated, md_expected)
-    final_df = pd.DataFrame({'generated': generated, 'expected': expected})
+    generated, expected, md_original = decode_batch(md_generated, md_expected)
+    final_df = pd.DataFrame({'generated': generated, 'expected': expected, 'generated_md': md_generated, 'original_md': md_original})
     final_df.to_csv(f'data/{config.rewriter_name}/predictions.csv', encoding='utf-8', index=False)
-    score, _ = evaluate(final_df)
+    score = evaluate(final_df)[0]
     if score > best_score:
       print("New best score, saving to dataset")
       best_score = score

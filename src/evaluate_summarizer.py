@@ -20,6 +20,8 @@ def summarize_article(article_number):
   targets = []
   generated = []
   expected = []
+  md_generated = []
+  md_original = []
   for i, block in enumerate(article["blocks"]):
     if block["type"] == "paragraph":
       text = block["text"]
@@ -44,6 +46,8 @@ def summarize_article(article_number):
       targets.append(target)
       generated.append(mdRemove(result))
       expected.append(expected_res)
+      md_generated.append(result)
+      md_original.append(mdEncoded)
   original = "".join([source["text"] for source in sources])
   print(original)
   print()
@@ -55,8 +59,9 @@ def summarize_article(article_number):
   compression = len(summarized) / len(original) * 100
   compression_str = f"Compression: {compression}% ({len(summarized)}/{len(original)})"
   print(compression_str)
-  final_df = pd.DataFrame({'generated': generated, 'expected': expected})
-  rouge2_score, rougeL_score = evaluate(final_df)
+  final_df = pd.DataFrame({'generated': generated, 'expected': expected, 'generated_md': md_generated, 'original_md': md_original})
+  final_df.to_csv(f'results/{config.rewriter_name}/article_{article_number}.csv', encoding='utf-8', index=False)
+  overall_score, rouge2_score, rougeL_score, md_similarity_score = evaluate(final_df)
 
   summary_file = open(f"results/{config.rewriter_name}/article_{article_number}.md", "w")
   summary_file.write(f"""# {article["title"]}
@@ -65,6 +70,8 @@ def summarize_article(article_number):
 {compression_str}
 Rouge 2: {rouge2_score}%
 Rouge L: {rougeL_score}%
+MD Similarity: {md_similarity_score}%
+Overall: {overall_score}%
 ```
 
 {summarized}
