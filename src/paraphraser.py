@@ -19,7 +19,7 @@ class Paraphraser:
     return encoding
 
   def decode(self, value):
-    return self.tokenizer.decode(value, clean_up_tokenization_spaces=True).replace("<pad>", "").replace("<s>", "").replace("</s>", "").replace("paraphrase: ", "").replace("paraphrasedoutput: ", "").replace("paraphrasedout ", "")
+    return self.tokenizer.decode(value, clean_up_tokenization_spaces=True).replace("<pad>", "").replace("<s>", "").replace("</s>", "").replace("paraphrase: ", "").replace("paraphrasedoutput: ", "").replace("paraphrased ").replace("paraphrasedout ", "")
 
   def train(self, epoch: int, loader, optimizer):
     self.model.train()

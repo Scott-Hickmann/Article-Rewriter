@@ -10,7 +10,7 @@ Compression: 52.471328529381914% (5170/9853)
 
 > Update: Here’s a list of 35+ charities to support Ukrainians right now.
 
-paraphrased Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58) was the first [Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[ChrisChr](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)
+Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58) was the first [Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[Chris](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)Chris[ChrisChr](https://survivingtomorrow.org/medium-has-never-ever-curated-a-single-story-ive-published-that-contains-the-c-word-2b6033475d58)
 
 
 
@@ -32,9 +32,9 @@ Putin claims that Ukraine is a threat to his mighty nation.
 
 Once Ukraine joins NATO, he'll have a full-scale adversary on his doorstep, but Russia has *constantly invaded Russia **once** since its inception.*
 
-paraphrased The stated aim of Putin's "unique project" is to [demilitarize and de-Nazify the Jewish-led nation](https://www.independent.co.uk/news/world/europe/putin-russia-ukraine-military-invade-b2022046.html).
+The stated aim of Putin's "unique project" is to [demilitarize and de-Nazify the Jewish-led nation](https://www.independent.co.uk/news/world/europe/putin-russia-ukraine-military-invade-b2022046.html).
 
-paraphrased Ukraine will remain undefended by NATO so he can keepand the **other two countries** **[**[for two decades**.**](https://www.express.co.uk/news/world/1569684/Russia-Ukraine-Vladimir-Putin-separatist-states-evg)**](https://en.wikipedia.org/wiki/Crimea)**
+Ukraine will remain undefended by NATO so he can keepand the **other two countries** **[**[for two decades**.**](https://www.express.co.uk/news/world/1569684/Russia-Ukraine-Vladimir-Putin-separatist-states-evg)**](https://en.wikipedia.org/wiki/Crimea)**
 
 A *lot of Russian energy products are being shipped to market by Ukraine pipelines.*
 
@@ -60,7 +60,7 @@ Russia is simply following America's playbook. *All* war is morally wrong, no ma
 
 Russia invaded Ukraine to solidify its hold on two eastern regions.
 
-paraphrased Pray and/or meditate on what actions we are going to take with our families2. 
+Pray and/or meditate on what actions we are going to take with our families2. 
 [Stop buying Russian products (vodka obviously), but more importantly, pay the extra to switch from oil/solar/geothermal/etc.)-](https://survivingtomorrow.org/here-are-35-ways-you-can-help-ukraine-right-now-8c90a0c2bd93)
 
 My friends, the war will not fix this planet or change corrupt hearts.

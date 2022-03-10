@@ -24,7 +24,7 @@ This new cold war can be said to be in full swing as a result of Russia's invasi
 
 Taiwan has attempted to establish its nexus over the contested South China Sea by building islands and military installations and threatening those that pass through.
 
-paraphrased The number of hot or hard power conflicts extends beyond the military domain to economics and clandestine operations, as they did during the First Cold War.
+The number of hot or hard power conflicts extends beyond the military domain to economics and clandestine operations, as they did during the First Cold War.
 
 Russia[Russia](https://www.csis.org/blogs/technology-policy-blog/russia-ramps-global-elections-interference-lessons-united-states)Russia [has mounted concerted efforts of disinformation campaigns and election interference with the clear intention of destabilizing democratic countries.](https://www.csis.org/blogs/technology-policy-blog/russia-ramps-global-elections-interference-lessons-united-states)
 

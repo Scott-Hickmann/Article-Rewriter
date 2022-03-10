@@ -10,7 +10,7 @@ Compression: 26.258082653921843% (1868/7114)
 
 People don't like to discuss how the very concept of "NFT value" is so complicated.
 
-paraphrased I attest that these questions are not dumb. 
+I attest that these questions are not dumb. 
 
 I am an educator, and I attest that anyone who is more familiar with NFTs was expected to answer these questions for themselves at some point in their journey from JPEG to DAO.
 

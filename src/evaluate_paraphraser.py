@@ -43,7 +43,7 @@ def paraphrase_article(article_number):
           source_without_markdown = mdRemove(mdEncoded)
           expected_res = naive_paraphraser.paraphrase(naive_paraphraser.encode(source_without_markdown))[0].strip()
           targets.append(target)
-          paraphrased += target
+          paraphrased += target + " "
           generated.append(mdRemove(result))
           expected.append(expected_res)
   print(original)

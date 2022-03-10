@@ -16,7 +16,7 @@ In exchange, European politicians will have a ready-made excuse to encourage Ame
 
 NATO allowed Hungary and Czechoslovakia to fall to Moscow when Joe Biden was young, and the only battles it has ever fought against Serbian and Taliban militants.
 
-paraphrased Russian leaders like Putin don't look at the present and assume it will continue forever. 
+Russian leaders like Putin don't look at the present and assume it will continue forever. 
 
  Whether Russian leaders like Vladimir don't look at the present but assume it is.
 
@@ -38,7 +38,7 @@ American leaders are obsessed with the idea of [deterrence](https://en.wikipedia
 
 When an opponent decides the costs are prohibitive, American deterrence falls short.
 
-paraphrased China has no reason to restrain Putin because Russia and China are [officially strong allies now](https://www.nbcnews.com/news/world/russia-china-forge-closer-ties-us-preoccupied-struggles-home-rcna15722), like the United States and UK, because America under Biden has refused to make sense and work out a long-term stable agreement to avoid any war over Taiwan or the South China Sea.
+China has no reason to restrain Putin because Russia and China are [officially strong allies now](https://www.nbcnews.com/news/world/russia-china-forge-closer-ties-us-preoccupied-struggles-home-rcna15722), like the United States and UK, because America under Biden has refused to make sense and work out a long-term stable agreement to avoid any war over Taiwan or the South China Sea.
 
 Public proclamations of NATO unity [are masking deep divides between the key continental European players, Germany and France, and the United Kingdom/UK.](https://www.nytimes.com/2022/01/14/world/europe/nato-russia-ukraine-europe.html)
 

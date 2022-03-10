@@ -8,7 +8,7 @@ Compression: 47.38634680882571% (3200/6753)
 |:--:|
 | *Image by [Дмитрий Осипенко](https://pixabay.com/users/dimitrosevastopol-2325980/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5277284) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5277284)* |
 
-paraphrased Nikita Khrushchev, Russia's First Party Secretary, delivered a speech called [On The Cult Of Personality And Its Consequences *in 1956, three years after Stalin's death.*](https://www.ht.lu.se/media/utbildning/dokument/kurser/EUHA14/20121/Nikita_S._Khrushchev__The_Secret_Speech_On_the_Cult_of_Personality_1956.pdf)
+Nikita Khrushchev, Russia's First Party Secretary, delivered a speech called [On The Cult Of Personality And Its Consequences *in 1956, three years after Stalin's death.*](https://www.ht.lu.se/media/utbildning/dokument/kurser/EUHA14/20121/Nikita_S._Khrushchev__The_Secret_Speech_On_the_Cult_of_Personality_1956.pdf)
 
 > The negative characteristics of Stalin, which, in Lenin’s time, were only incipient, transformed themselves during the last years into a grave abuse of power by Stalin, which caused untold harm to our party.Stalin acted not through persuasion, explanation, and patient cooperation with people, but by imposing his concepts and demanding absolute submission to his opinion. […]You see to what Stalin’s mania for greatness led? He had completely lost consciousness of reality.
 

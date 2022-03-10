@@ -10,7 +10,7 @@ Compression: 47.35408913497322% (5217/11017)
 
 
 
-paraphrased War on Fakes grew to over 625,000 subscribers and is now one of Russia's most popular Telegram channels with a reach of more than 30 million daily viewers on February 23, 2022.
+War on Fakes grew to over 625,000 subscribers and is now one of Russia's most popular Telegram channels with a reach of more than 30 million daily viewers on February 23, 2022.
 
 | ![Line graph of the War on Fakes’ subscriber growth between February 24 (one day after launch) and March 3, 2022. As of March 7, it has over 625,000 subscribers. (Source: DFRLab via TGStat.com)](https://miro.medium.com/max/1182/1*iKMp-sg8cX-U_210QSYGgg.png) |
 |:--:|
@@ -28,7 +28,7 @@ A review of the channel's posts shows that War on Fakes is not objective, rather
 
 The channel has started to be noticed by mainstream Russian propaganda agencies.
 
-paraphrased The assertion that the photo was staged has been [debunked](https://www.logically.ai/factchecks/library/ca6d93d1), as metadata revealed that the photograph was in fact taken on the day of the Chuhiv airstrike.
+The assertion that the photo was staged has been [debunked](https://www.logically.ai/factchecks/library/ca6d93d1), as metadata revealed that the photograph was in fact taken on the day of the Chuhiv airstrike.
 
 | ![Collage of images displayed in RT’s Telegram post citing War on Fakes, which alleges that the injured woman on the left and bottom right is faking and that she can be seen in the top right photo (taken two days later) looking completely unharmed. (Source: RT/[archive](https://archive.ph/dFKdX), left; [Lynsey Addario](https://www.instagram.com/p/Caeb0KoN7Bm/)/[NYTimes](https://www.nytimes.com/article/russia-invades-ukraine-photos.html)/[archive](https://archive.ph/swEkZ), top right; RT, bottom right)](https://miro.medium.com/max/1400/1*VBluwTgbpWxiMP1WzQpDQQ.png) |
 |:--:|
