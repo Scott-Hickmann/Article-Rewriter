@@ -8,7 +8,7 @@ import gensim.downloader
 word2vec_model = gensim.downloader.load("glove-wiki-gigaword-100")
 
 def avg_words_vector(words, model, num_features):
-  featureVec = np.zeros((num_features, 1), dtype="float32")
+  featureVec = np.zeros((num_features, model.vector_size), dtype="float32")
   nwords = 0
   for word in words:
     if word in model.index_to_key:
@@ -50,13 +50,14 @@ def evaluate(dataframe):
       if len(tagsFound) > 0 and n > 0:
         tagSearcher = re.compile(f'{tag}(.*?){tag}')
         tags = tagSearcher.findall(text)
-        original_tags = tagSearcher.findall(original)
-        totat_similarity = 0
-        for tag in tags:
-          totat_similarity += max([get_words_similarity(tag, original_tag) for original_tag in original_tags])
-        avg_similarity = totat_similarity / len(tags)
-        total_similarity_score += avg_similarity
-        total_max_similarity_score += 1
+        if len(tags) > 0:
+          original_tags = tagSearcher.findall(original)
+          similarity = 0
+          for tag in tags:
+            similarity += max([get_words_similarity(tag, original_tag) for original_tag in original_tags])
+          avg_similarity = similarity / len(tags)
+          total_similarity_score += avg_similarity
+          total_max_similarity_score += 1
 
       if n == 0:
         total_max_similarity_score += 1

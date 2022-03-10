@@ -66,7 +66,7 @@ def finetune(config, rewriter):
     final_df = pd.DataFrame({'generated': generated, 'expected': expected, 'generated_md': md_generated, 'original_md': md_original})
     final_df.to_csv(f'data/{config.rewriter_name}/predictions.csv', encoding='utf-8', index=False)
     score = evaluate(final_df)[0]
-    if score > best_score:
+    if score > best_score and epoch > 0:
       print("New best score, saving to dataset")
       best_score = score
       torch.save(rewriter.model.state_dict(), f'models/{config.rewriter_name}/main.pt')

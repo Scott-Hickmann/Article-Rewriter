@@ -19,7 +19,6 @@ naive_paraphraser = Paraphraser(config)
 
 def paraphrase_article(article_number):
   article = json.load(open(f"data/article_{article_number}.json", "r"))
-  sources = []
   targets = []
   generated = []
   expected = []
@@ -77,7 +76,7 @@ Overall: {overall_score}%
 {paraphrased}
 """)
   paraphrase_file.close()
-  return compression, rouge2_score, rougeL_score
+  return compression, rouge2_score, rougeL_score, md_similarity_score, overall_score
 
 results = []
 if article_input == "":
@@ -86,6 +85,6 @@ if article_input == "":
 else:
   results.append(paraphrase_article(article_input))
 
-print("Compression,Rouge 2,Rouge L")
+print("Compression,Rouge 2,Rouge L,MD Similarity,Overall")
 for result in results:
-  print(f"{result[0]}%,{result[1]}%,{result[2]}%")
+  print(f"{result[0]}%,{result[1]}%,{result[2]}%,{result[3]}%,{result[4]}%")
